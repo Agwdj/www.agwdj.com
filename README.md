@@ -93,3 +93,12 @@
 •Bug反馈及其他问题联系邮箱：agwdj@foxmail.com
 
 •程序V1.0文件最后修改日期：20250426151515
+
+
+【演示截屏】
+![A1-4K显示器浏览器打开网址全屏模式截屏](https://github.com/Agwdj/www.agwdj.com/blob/A%E8%82%A1%E6%B8%A9%E5%BA%A6%E8%AE%A1/A1-4K%E6%98%BE%E7%A4%BA%E5%99%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80%E7%BD%91%E5%9D%80%E5%85%A8%E5%B1%8F%E6%A8%A1%E5%BC%8F%E6%88%AA%E5%B1%8F.png?raw=true)
+![A2-MateXT三折叠微信内打开画面大小演示截屏](https://github.com/Agwdj/www.agwdj.com/blob/A%E8%82%A1%E6%B8%A9%E5%BA%A6%E8%AE%A1/A2-MateXT%E4%B8%89%E6%8A%98%E5%8F%A0%E5%BE%AE%E4%BF%A1%E5%86%85%E6%89%93%E5%BC%80%E7%94%BB%E9%9D%A2%E5%A4%A7%E5%B0%8F%E6%BC%94%E7%A4%BA%E6%88%AA%E5%B1%8F.png?raw=true)
+![A3-MateX5折叠屏微信内打开画面大小演示截屏](https://github.com/Agwdj/www.agwdj.com/blob/A%E8%82%A1%E6%B8%A9%E5%BA%A6%E8%AE%A1/A3-MateX5%E6%8A%98%E5%8F%A0%E5%B1%8F%E5%BE%AE%E4%BF%A1%E5%86%85%E6%89%93%E5%BC%80%E7%94%BB%E9%9D%A2%E5%A4%A7%E5%B0%8F%E6%BC%94%E7%A4%BA%E6%88%AA%E5%B1%8F.png?raw=true)
+![A4-Mate60Pro+已升级鸿蒙NEXT系统浏览器直接打开画面大小演示截屏](https://github.com/Agwdj/www.agwdj.com/blob/A%E8%82%A1%E6%B8%A9%E5%BA%A6%E8%AE%A1/A4-Mate60Pro+%E5%B7%B2%E5%8D%87%E7%BA%A7%E9%B8%BF%E8%92%99NEXT%E7%B3%BB%E7%BB%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%E7%94%BB%E9%9D%A2%E5%A4%A7%E5%B0%8F%E6%BC%94%E7%A4%BA%E6%88%AA%E5%B1%8F.png?raw=true)
+![A5-普通安卓手机App竖屏演示截屏](https://github.com/Agwdj/www.agwdj.com/blob/A%E8%82%A1%E6%B8%A9%E5%BA%A6%E8%AE%A1/A5-%E6%99%AE%E9%80%9A%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BAApp%E7%AB%96%E5%B1%8F%E6%BC%94%E7%A4%BA%E6%88%AA%E5%B1%8F.png?raw=true)
+![A6-普通安卓手机App横屏演示截屏](https://github.com/Agwdj/www.agwdj.com/blob/A%E8%82%A1%E6%B8%A9%E5%BA%A6%E8%AE%A1/A6-%E6%99%AE%E9%80%9A%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BAApp%E6%A8%AA%E5%B1%8F%E6%BC%94%E7%A4%BA%E6%88%AA%E5%B1%8F.png?raw=true)
