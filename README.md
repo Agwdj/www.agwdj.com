@@ -84,7 +84,7 @@
 
 【其他说明】
 
-•A股温度计网址：https://www.agwdj.com（程序部署运行后界面100%一样）
+•A股温度计网址：https://www.agwdj.com （程序部署运行后界面100%一样）
 
 •程序如有更新请以后面rar文件下载链接为准：https://www.agwdj.com/agwdj.rar
 
