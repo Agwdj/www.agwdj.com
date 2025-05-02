@@ -77,13 +77,13 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Refresh" content="3600">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preload" href="global.css?v=1.0" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="map.css?v=1.0" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="other.css?v=1.0" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="global.css?v=1.1" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="map.css?v=1.1" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="other.css?v=1.1" as="style" onload="this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="global.css?v=1.0">
-        <link rel="stylesheet" href="map.css?v=1.0">
-        <link rel="stylesheet" href="other.css?v=1.0">
+        <link rel="stylesheet" href="global.css?v=1.1">
+        <link rel="stylesheet" href="map.css?v=1.1">
+        <link rel="stylesheet" href="other.css?v=1.1">
         <style>
         .noscript-alert {
             position:fixed;
@@ -251,21 +251,21 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
 
 <div id="tishi" class="tishi">
     <h3>成交额越大面积越大，画面变化6秒/次，喜欢可赞赏支持~</h3>
-    <p><img src="https://www.agwdj.com/tishi.png" style="width: 150px; height: auto;"></p>
+    <p><img src="https://www.agwdj.com/tishi.png" style="width: auto; height: 150px;"></p>
     <p>大A市场5000+个股同屏显示,数据加载速度取决于您当前设备性能。</p>
     <p>设备性能较弱时,频繁缩放或快速滑动会导致明显卡顿,请减少此类操作。</p>
     <button onclick="alert('\n赞赏码是维持程序运行所需流量费的唯一来源,非赞赏用户不能关闭！\n\n赞赏用户可发赞赏截图及联系方式到邮箱agwdj@foxmail.com申请!')">永久关闭此提示</button>
     <button id="hidetishi">好的,我知道了!</button>
 </div>
 
-<script src="global.js?v=1.0"></script>
-<script src="jquery.min.js?v=1.0"></script>
-<script src="d3.min.js?v=1.0"></script>
-<script src="hammer.min.js?v=1.0"></script>
-<script src="react-with-addons.min.js?v=1.0"></script>
-<script src="market.js?v=1.0"></script>
-<script src="data.js?v=1.0"></script>
-<script src="tongji.js?v=1.0"></script>
+<script src="global.js?v=1.1"></script>
+<script src="jquery.min.js?v=1.1"></script>
+<script src="d3.min.js?v=1.1"></script>
+<script src="hammer.min.js?v=1.1"></script>
+<script src="react-with-addons.min.js?v=1.1"></script>
+<script src="market.js?v=1.1"></script>
+<script src="data.js?v=1.1"></script>
+<script src="tongji.js?v=1.1"></script>
 
 <script>
 // 禁用右键菜单
@@ -304,29 +304,6 @@ document.addEventListener('keydown', function(e) {
     };
     setInterval(spamConsole, 3000);
 })();
-
-// 暂未开放的板块提示
-document.querySelector('.right_nav').addEventListener('click', function(e) {
-    const target = e.target.closest('li');
-    if (!target) return;
-    
-    const itemText = target.textContent.trim();
-    const disabledItems = ['可转债', 'ETF'];
-    
-    if (disabledItems.includes(itemText)) {
-        e.stopImmediatePropagation();
-        e.preventDefault();
-        
-        // 差异化提示
-        const messages = {
-            '可转债': '可转债板块暂未开放',
-            'ETF': 'ETF板块暂未开放'
-        };
-        
-        alert(messages[itemText]);
-        return false;
-    }
-}, true);
 
 // 全屏模式
 const btn = document.getElementById('fullscreen');
