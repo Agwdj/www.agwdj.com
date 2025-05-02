@@ -3763,16 +3763,20 @@
                     , n = t.offsetY
                     , d = c.getNodeAtPosition(a, n);  // 获取当前位置的节点
                 
-                // 处理股票代码跳转
+                // 处理股票代码信息
                 if (d && d.id) {
                     var prefix = d.id.substring(0, 2);
                     var hsj;
+                    var secid;
                     if (prefix === "00" || prefix === "30" || prefix === "12" || prefix === "15") {
                         hsj = "sz";
-                    } else if (prefix === "60" || prefix === "68" || prefix === "11" || prefix === "51" || prefix === "52" || prefix === "56" || prefix === "58") {
+                        secid = 0;
+                    } else if (prefix === "60" || prefix === "68" || prefix === "11" || prefix === "51" || prefix === "52" || prefix === "53" || prefix === "56" || prefix === "58") {
                         hsj = "sh";
+                        secid = 1;
                     } else if (prefix === "43" || prefix === "83" || prefix === "87" || prefix === "92") {
                         hsj = "bj";
+                        secid = 0;
                     }
                     if (navigator.userAgent.indexOf("TdxW") !== -1) {
                         window.location = "http://www.treeid/breed_"+hsj+d.id;
@@ -4211,7 +4215,7 @@
                     if (prefix === "00" || prefix === "30" || prefix === "12" || prefix === "15") {
                         hsj = "sz";
                         secid = 0;
-                    } else if (prefix === "60" || prefix === "68" || prefix === "11" || prefix === "51" || prefix === "52" || prefix === "56" || prefix === "58") {
+                    } else if (prefix === "60" || prefix === "68" || prefix === "11" || prefix === "51" || prefix === "52" || prefix === "53" || prefix === "56" || prefix === "58") {
                         hsj = "sh";
                         secid = 1;
                     } else if (prefix === "43" || prefix === "83" || prefix === "87" || prefix === "92") {
@@ -4317,11 +4321,12 @@
                                     
                                     // 处理股票代码信息
                                     var prefix = t.id.substring(0, 2);
-                                    var hsj, secid;
+                                    var hsj;
+                                    var secid;
                                     if (prefix === "00" || prefix === "30" || prefix === "12" || prefix === "15") {
                                         hsj = "sz";
                                         secid = 0;
-                                    } else if (prefix === "60" || prefix === "68" || prefix === "11" || prefix === "51" || prefix === "52" || prefix === "56" || prefix === "58") {
+                                    } else if (prefix === "60" || prefix === "68" || prefix === "11" || prefix === "51" || prefix === "52" || prefix === "53" || prefix === "56" || prefix === "58") {
                                         hsj = "sh";
                                         secid = 1;
                                     } else if (prefix === "43" || prefix === "83" || prefix === "87" || prefix === "92") {
