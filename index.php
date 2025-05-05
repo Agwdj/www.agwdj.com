@@ -2,7 +2,7 @@
 error_reporting(0);
 // 获取浏览器信息
 $ua = $_SERVER['HTTP_USER_AGENT'];
-// 检测浏览器类型和内核版本
+// 获取浏览器类型和内核版本
 $isChrome = preg_match('/Chrome\/(\d+)/', $ua, $chromeMatch);
 $isFirefox = preg_match('/Firefox\/(\d+)/', $ua, $firefoxMatch);
 // 苹果设备
@@ -23,15 +23,10 @@ function showError($message, $ua) {
     ));
     // 转义UA字符串
     $safeUa = htmlspecialchars($ua, ENT_QUOTES, 'UTF-8');
-    echo '<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#f00;color:white;font-size:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;text-align:center;padding:20px;">
-            <svg width="168" height="168" viewBox="0 0 24 24" style="margin-bottom:20px">
-                <path fill="white" d="M12 2L1 21h22M12 6l7.5 13H4.5M11 10v4h2v-4m0 6v2h-2v-2"/>
-            </svg>
-            <p>' . $safeMessage . '<br><br><small style="font-size:16px">' . $safeUa . '</small></p>
-          </div>';
+    echo '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><script>document.write(\'<script src="title.js?\'+Date.now()+\'"><\\/script>\');</script><meta name="description" content="通过数据可视化技术，将复杂的A股市场数据转化为直观的图形界面，帮助投资者快速把握市场脉搏。"></head><body><div style="position:fixed;top:0;left:0;width:100%;height:100%;background:#f00;color:white;font-size:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;text-align:center;padding:20px;"><svg width="168" height="168" viewBox="0 0 24 24" style="margin-bottom:20px"><path fill="white" d="M12 2L1 21h22M12 6l7.5 13H4.5M11 10v4h2v-4m0 6v2h-2v-2"/></svg><p>'.$safeMessage.'<br><br><small style="font-size:16px">'.$safeUa.'</small></p></div></body></html>';
     exit;
 }
-// 检查浏览器内核版本
+// 检测浏览器类型和内核版本,只有符合要求的才会继续加载数据
 if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
     if (isset($_GET['app']) && $_GET['app'] == "yes") {
         showError('当前设备系统Chrome内核版本过低<br><br>App无法正常启动,请尝试升级系统或换个设备安装App,请谅解!', $ua);
@@ -45,7 +40,6 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
 } elseif (!$isChrome && !$isFirefox && !$isAppleDevice) {
     showError('当前浏览器无法正常加载数据<br><br>请更换浏览器并使用极速模式(Chrome内核)访问即可恢复正常', $ua);
 }
-// 只有符合要求的浏览器才会继续加载数据
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -72,6 +66,7 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
             setTimeout(updateViewport, 100);
         });
     </script>
+    <meta name="description" content="通过数据可视化技术，将复杂的A股市场数据转化为直观的图形界面，帮助投资者快速把握市场脉搏。">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -190,7 +185,6 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
     </style>
 </head>
 <body class="has-map" style="margin:0" bgcolor="#ffffff">
-
 <div class="qqsj">
     <div class="qqsjl">
         <div class="qqsjlt">全球时间</div>
@@ -204,7 +198,6 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
         <div style="display: flex; justify-content: center; align-items: center; height: 100%;">正在加载全球市场行情数据...</div>
     </div>
 </div>
-
 <ul class="right_nav">
     <ul>
         <li class="active"><a>A股全图</a></li>
@@ -221,9 +214,7 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
 <select id="select-change" hidden>
     <option value="zdf" selected="selected" color="">涨跌幅</option>
 </select>
-
 <?php if ( (isset($_GET['app']) && $_GET['app'] == "yes") || strpos($ua, 'Mobile') !== false || strpos($ua, 'Android') !== false || strpos($ua, 'Mac') !== false ) { echo '<button id="refresh" onclick="if(confirm(\'画面没有全黑的情况下系统会自动刷新无需手动操作,确定要手动刷新吗?\')){location.reload();}">数据刷新</button><button id="fullscreen" hidden></button>'; }else { echo '<button id="fullscreen">全屏模式</button>'; } ?>
-
 <div class="content map">
     <div class="container is-wide">
         <div class="view" hidden>
@@ -248,7 +239,6 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
         <div id="modal"></div>
     </div>
 </div>
-
 <div id="tishi" class="tishi">
     <h3>成交额越大面积越大，画面变化6秒/次，喜欢可赞赏支持~</h3>
     <p><img src="https://www.agwdj.com/tishi.png" style="width: auto; height: 150px;"></p>
@@ -257,7 +247,6 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
     <button onclick="alert('\n赞赏码是维持程序运行所需流量费的唯一来源,非赞赏用户不能关闭！\n\n赞赏用户可发赞赏截图及联系方式到邮箱agwdj@foxmail.com申请!')">永久关闭此提示</button>
     <button id="hidetishi">好的,我知道了!</button>
 </div>
-
 <script src="global.js?v=1.1"></script>
 <script src="jquery.min.js?v=1.1"></script>
 <script src="d3.min.js?v=1.1"></script>
@@ -266,7 +255,6 @@ if ($isChrome && ((int)$chromeMatch[1] < $minChromeVersion)) {
 <script src="market.js?v=1.1"></script>
 <script src="data.js?v=1.1"></script>
 <script src="tongji.js?v=1.1"></script>
-
 <script>
 // 禁用右键菜单
 document.addEventListener('contextmenu', function(e) {
@@ -275,7 +263,6 @@ document.addEventListener('contextmenu', function(e) {
         return false;
     }
 });
-
 // 快捷键拦截
 document.addEventListener('keydown', function(e) {
     const isBlocked = 
@@ -289,7 +276,6 @@ document.addEventListener('keydown', function(e) {
         window.location.href = "about:blank";
     }
 });
-
 // 控制台提示
 (function() {
     setInterval(function() {
@@ -304,7 +290,6 @@ document.addEventListener('keydown', function(e) {
     };
     setInterval(spamConsole, 3000);
 })();
-
 // 全屏模式
 const btn = document.getElementById('fullscreen');
 function updateButtonText() {
@@ -337,7 +322,6 @@ btn.addEventListener('click', () => {
 ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach(evt => {
     document.addEventListener(evt, updateButtonText);
 });
-
 // 关闭提示
 $(document).ready(function() {
     $(document).on('click', '#hidetishi', function() {
@@ -345,6 +329,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
 </body>
 </html>
