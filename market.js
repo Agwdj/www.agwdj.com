@@ -31,7 +31,7 @@ function initD3Data() {
 function drawMap(s, c) {
     // 非交易时间段跳过更新（首次加载或resize事件不受交易时间限制）
     if(!c && !isManualResize && lastCode === tmpCode && !isTradingTime()) {
-        console.log("非交易时段(9:15-11:30,13:00-15:00),暂停更新markets");
+        console.log("非交易时段(9:15-11:30,13:00-15:00),暂停更新market");
         return;
     }
     
@@ -186,7 +186,7 @@ $(function() {
         }, 100);
     });
     
-    // 每66.666秒自动刷新一次markets
+    // 每66.666秒自动刷新一次market
     setInterval(safeRefresh, 66666);
 });
 
